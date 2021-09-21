@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import 'bootswatch/dist/litera/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { ListaNoticias } from './Components/Contents/ListaNoticias';
+import { Navbar } from './Components/Navbar/Navbar';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+
+      <Navbar/>
+      <div className="container p-4">
+        <Switch>
+        <Route path="/" component={ListaNoticias} ></Route>
+        </Switch>
+      </div>
+
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
