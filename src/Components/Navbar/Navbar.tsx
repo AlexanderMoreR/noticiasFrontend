@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import { Buscador } from './Buscador'
 
 export const Navbar = () => {
     return (
@@ -18,10 +19,7 @@ export const Navbar = () => {
                     <Link className="nav-link" to="/">Tiempo</Link>
                 </li>
                 </ul>
-                <form className="d-flex">
-                <input className="form-control me-sm-2" type="text" placeholder="Buscar" />
-                <button className="btn btn-secondary my-2 my-sm-0" type="submit">Buscar</button>
-                </form>
+                <Buscador></Buscador>
             </div>
             </div>
         </nav>

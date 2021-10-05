@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ListaNoticias } from './Components/Contents/ListaNoticias';
 import { Navbar } from './Components/Navbar/Navbar';
+import { MostrarNoticia } from './Components/Contents/MostrarNoticia'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,7 +15,10 @@ ReactDOM.render(
       <Navbar/>
       <div className="container p-4">
         <Switch>
-        <Route path="/" component={ListaNoticias} ></Route>
+        <Route path="/noticias" component={ListaNoticias} ></Route>
+        <Route path="/noticia/:id" component={MostrarNoticia} ></Route>
+        <Route exact path="/" component={ListaNoticias} ></Route>
+        <Route path="*" ><h1>404 Not found</h1></Route>
         </Switch>
       </div>
 

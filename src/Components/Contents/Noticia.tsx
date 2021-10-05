@@ -1,8 +1,8 @@
 export interface Noticia {
+    id?: String;
     category: String;
-    createdAt: String;
+    createdAt: String | Date;
     description: String;
     file: String;
-    _id: String;
     name: String;
 }

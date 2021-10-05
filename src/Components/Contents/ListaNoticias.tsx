@@ -7,8 +7,17 @@ export const ListaNoticias = () => {
     const [noticias, setNoticias] = useState<Noticia[]>([]);
 
     const loadNoticias = async () => {
-        const res = await noticiaService.getNoticia();
-        setNoticias(res.data);
+        const res = await noticiaService.getNoticias();
+
+        const nuevaNoticias = res.data.map(( noticia: Noticia ) => {
+            return {
+                ...noticia,
+                createdAt: noticia.createdAt ? new Date(noticia.createdAt.toString()): new Date(),
+            }
+        })
+        .sort((a: any, b: any)=> b.createdAt.getTime() - a.createdAt.getTime());
+
+        setNoticias(nuevaNoticias);
     }
 
     useEffect(() => {
@@ -16,10 +25,10 @@ export const ListaNoticias = () => {
     }, [])
 
     return (
-        <div>
+        <div className="row" >
             {
                 noticias.map(noticia => {
-                    return <NoticiaItem noticia={noticia} />
+                    return <NoticiaItem  noticia={noticia} key={noticia.id?.toString()} />
                 })
             }
         </div>
